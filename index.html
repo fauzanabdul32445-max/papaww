@@ -1,0 +1,2365 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>XI TJKT 1 | SMK Mandiri Bersemi</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#050505;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+
+    width:450px;
+    height:450px;
+
+    background:#00eaff;
+    filter:blur(180px);
+    opacity:.055;
+
+    top:5%;
+    left:-200px;
+
+    pointer-events:none;
+    z-index:-1;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+
+    padding:18px 7%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(5,5,5,.78);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+
+    z-index:999;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#00eaff;
+}
+
+nav ul{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+nav ul a{
+    color:#aaa;
+    text-decoration:none;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+nav ul a:hover{
+    color:#00eaff;
+}
+
+.menu-btn{
+    display:none;
+
+    font-size:27px;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:100px 20px;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(0,234,255,.16),
+            transparent 32%
+        ),
+        #050505;
+
+    background-size:
+        45px 45px,
+        45px 45px,
+        100% 100%,
+        100% 100%;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    left:50%;
+    top:45%;
+
+    transform:translate(-50%,-50%);
+
+    border:1px solid rgba(0,234,255,.06);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 80px rgba(0,234,255,.04);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:900px;
+
+    animation:heroIn 1s ease;
+}
+
+.school-label{
+    color:#00eaff;
+
+    font-size:13px;
+    font-weight:bold;
+
+    letter-spacing:6px;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(70px,14vw,155px);
+
+    line-height:.82;
+
+    letter-spacing:-8px;
+}
+
+.hero h1 span{
+    color:#00eaff;
+
+    text-shadow:
+        0 0 20px rgba(0,234,255,.35),
+        0 0 60px rgba(0,234,255,.15);
+}
+
+
+/* =====================================================
+   AXIOO
+===================================================== */
+
+.axioo-wrap{
+    width:fit-content;
+
+    margin:35px auto 22px;
+
+    padding:7px;
+
+    border-radius:17px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 0 35px rgba(0,234,255,.07);
+}
+
+.axioo-logo{
+    display:block;
+
+    width:185px;
+    max-width:65vw;
+    max-height:95px;
+
+    object-fit:contain;
+
+    border-radius:11px;
+
+    transition:.4s;
+}
+
+.axioo-wrap:hover .axioo-logo{
+    transform:scale(1.04);
+}
+
+
+/* =====================================================
+   HERO TEXT
+===================================================== */
+
+.hero-desc{
+    color:#999;
+
+    font-size:17px;
+
+    margin-bottom:18px;
+}
+
+.hero-stats{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:13px;
+
+    color:#666;
+
+    font-size:10px;
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    margin-bottom:30px;
+}
+
+.hero-stats i{
+    color:#00eaff;
+    font-style:normal;
+}
+
+.hero-btn{
+    display:inline-flex;
+    align-items:center;
+
+    gap:12px;
+
+    padding:15px 30px;
+
+    border:1px solid rgba(0,234,255,.8);
+
+    border-radius:50px;
+
+    color:#00eaff;
+
+    text-decoration:none;
+
+    font-size:14px;
+    font-weight:bold;
+
+    background:rgba(0,234,255,.025);
+
+    transition:.35s;
+}
+
+.hero-btn span{
+    font-size:18px;
+    transition:.35s;
+}
+
+.hero-btn:hover{
+    background:#00eaff;
+    color:#000;
+
+    box-shadow:
+        0 0 25px rgba(0,234,255,.25);
+}
+
+.hero-btn:hover span{
+    transform:translateY(4px);
+}
+
+.scroll-hint{
+    margin-top:55px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:10px;
+
+    color:#444;
+
+    font-size:9px;
+    letter-spacing:3px;
+}
+
+.scroll-hint span{
+    width:1px;
+    height:32px;
+
+    background:
+        linear-gradient(
+            #00eaff,
+            transparent
+        );
+
+    animation:scrollLine 1.7s infinite;
+}
+
+
+/* =====================================================
+   GENERAL SECTION
+===================================================== */
+
+section:not(.hero){
+    padding:100px 7%;
+}
+
+.section-title{
+    margin-bottom:45px;
+}
+
+.section-title small{
+    color:#00eaff;
+    letter-spacing:3px;
+}
+
+.section-title h2{
+    font-size:42px;
+    margin-top:10px;
+}
+
+.section-title p{
+    color:#666;
+    margin-top:8px;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-box{
+    padding:40px;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.01)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.about-box > p{
+    color:#aaa;
+
+    line-height:1.8;
+}
+
+.stats{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+
+    margin-top:30px;
+}
+
+.stat{
+    padding:25px;
+
+    text-align:center;
+
+    background:#0c0c0c;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:20px;
+
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(0,234,255,.35);
+}
+
+.stat h3{
+    color:#00eaff;
+    font-size:35px;
+}
+
+.stat p{
+    color:#666;
+    margin-top:5px;
+}
+
+
+/* =====================================================
+   WALI KELAS
+===================================================== */
+
+.teacher{
+    display:flex;
+
+    align-items:center;
+
+    gap:50px;
+
+    padding:40px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,234,255,.08),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(0,234,255,.15);
+
+    position:relative;
+    overflow:hidden;
+}
+
+.teacher::after{
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+    height:250px;
+
+    background:#00eaff;
+
+    filter:blur(140px);
+
+    opacity:.08;
+
+    right:-100px;
+    top:-100px;
+}
+
+.teacher-photo{
+    min-width:220px;
+    height:270px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #080808
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#333;
+
+    font-size:30px;
+
+    position:relative;
+    z-index:2;
+}
+
+.teacher-info{
+    position:relative;
+    z-index:2;
+}
+
+.teacher-info small{
+    color:#00eaff;
+    letter-spacing:3px;
+}
+
+.teacher-info h3{
+    font-size:38px;
+    margin:15px 0 8px;
+}
+
+.teacher-info .position{
+    color:#aaa;
+    margin-bottom:25px;
+}
+
+.teacher-info .quote{
+    color:#777;
+
+    line-height:1.7;
+
+    font-style:italic;
+
+    max-width:600px;
+}
+
+
+/* =====================================================
+   MEMBERS - V7 EDITORIAL LAYOUT
+===================================================== */
+
+.members{
+    display:grid;
+
+    grid-template-columns:
+        repeat(12,1fr);
+
+    grid-auto-rows:105px;
+
+    gap:18px;
+}
+
+
+/* CARD */
+
+.member{
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:#0b0b0b;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    transition:
+        transform .4s,
+        border-color .4s,
+        box-shadow .4s;
+}
+
+.member:hover{
+    transform:translateY(-6px);
+
+    border-color:#00eaff;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,234,255,.12);
+}
+
+
+/* FOTO */
+
+.member-photo{
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,234,255,.10),
+            #101010 65%
+        );
+
+    color:#333;
+
+    font-size:42px;
+    font-weight:bold;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+/* fake image shine */
+
+.member-photo::after{
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 35%,
+            rgba(255,255,255,.07),
+            transparent 65%
+        );
+
+    transform:translateX(-100%);
+
+    transition:.7s;
+}
+
+.member:hover .member-photo::after{
+    transform:translateX(100%);
+}
+
+
+/* INFO */
+
+.member-info{
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+
+    padding:45px 18px 17px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.95)
+        );
+
+    z-index:2;
+}
+
+.member-info h3{
+    font-size:16px;
+
+    margin-bottom:5px;
+}
+
+.member-info p{
+    color:#00eaff;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   VARIASI UKURAN MEMBER
+===================================================== */
+
+
+/* 01 - besar */
+
+.member:nth-child(1){
+    grid-column:span 5;
+    grid-row:span 3;
+}
+
+
+/* 02 */
+
+.member:nth-child(2){
+    grid-column:span 3;
+    grid-row:span 2;
+}
+
+
+/* 03 */
+
+.member:nth-child(3){
+    grid-column:span 4;
+    grid-row:span 2;
+}
+
+
+/* 04 */
+
+.member:nth-child(4){
+    grid-column:span 3;
+    grid-row:span 2;
+}
+
+
+/* 05 */
+
+.member:nth-child(5){
+    grid-column:span 4;
+    grid-row:span 3;
+}
+
+
+/* 06 */
+
+.member:nth-child(6){
+    grid-column:span 5;
+    grid-row:span 2;
+}
+
+
+/* 07 */
+
+.member:nth-child(7){
+    grid-column:span 4;
+    grid-row:span 2;
+}
+
+
+/* 08 */
+
+.member:nth-child(8){
+    grid-column:span 3;
+    grid-row:span 3;
+}
+
+
+/* 09 */
+
+.member:nth-child(9){
+    grid-column:span 5;
+    grid-row:span 2;
+}
+
+
+/* 10 */
+
+.member:nth-child(10){
+    grid-column:span 4;
+    grid-row:span 2;
+}
+
+
+/* 11 */
+
+.member:nth-child(11){
+    grid-column:span 3;
+    grid-row:span 3;
+}
+
+
+/* 12 */
+
+.member:nth-child(12){
+    grid-column:span 5;
+    grid-row:span 2;
+}
+
+
+/* 13 */
+
+.member:nth-child(13){
+    grid-column:span 4;
+    grid-row:span 3;
+}
+
+
+/* 14 */
+
+.member:nth-child(14){
+    grid-column:span 3;
+    grid-row:span 2;
+}
+
+
+/* 15 */
+
+.member:nth-child(15){
+    grid-column:span 5;
+    grid-row:span 2;
+}
+
+
+/* 16 */
+
+.member:nth-child(16){
+    grid-column:span 4;
+    grid-row:span 2;
+}
+
+
+/* 17 */
+
+.member:nth-child(17){
+    grid-column:span 3;
+    grid-row:span 3;
+}
+
+
+/* 18 */
+
+.member:nth-child(18){
+    grid-column:span 5;
+    grid-row:span 2;
+}
+
+
+/* =====================================================
+   JADWAL
+===================================================== */
+
+.table-wrapper{
+    overflow-x:auto;
+
+    border-radius:20px;
+}
+
+table{
+    width:100%;
+
+    min-width:650px;
+
+    border-collapse:collapse;
+
+    background:#0b0b0b;
+}
+
+th,
+td{
+    padding:18px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+
+    text-align:left;
+}
+
+th{
+    color:#00eaff;
+    background:#111;
+}
+
+td{
+    color:#aaa;
+}
+
+tr:hover td{
+    background:
+        rgba(0,234,255,.03);
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+}
+
+.gallery-item{
+    height:230px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111,
+            #080808
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    color:#333;
+
+    font-size:40px;
+
+    transition:.4s;
+}
+
+.gallery-item:hover{
+    transform:scale(1.03);
+
+    border-color:#00eaff;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    padding:60px 7%;
+
+    text-align:center;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+footer h2{
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#666;
+    font-size:14px;
+}
+
+
+/* =====================================================
+   TOP BUTTON
+===================================================== */
+
+#topBtn{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    border:1px solid #00eaff;
+
+    background:#050505;
+
+    color:#00eaff;
+
+    cursor:pointer;
+
+    display:none;
+
+    z-index:999;
+}
+
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:.8s;
+}
+
+.reveal.active{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes heroIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes scrollLine{
+
+    0%{
+        opacity:0;
+        transform:translateY(-8px);
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:768px){
+
+    nav{
+        padding:17px 6%;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav ul{
+        position:absolute;
+
+        top:70px;
+        right:5%;
+
+        width:200px;
+
+        display:none;
+
+        flex-direction:column;
+
+        gap:0;
+
+        background:
+            rgba(10,10,10,.98);
+
+        border-radius:15px;
+
+        overflow:hidden;
+
+        border:
+            1px solid
+            rgba(255,255,255,.08);
+    }
+
+    nav ul.active{
+        display:flex;
+    }
+
+    nav ul li a{
+        display:block;
+
+        padding:15px 20px;
+    }
+
+
+    /* ABOUT */
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+
+    /* TEACHER */
+
+    .teacher{
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:30px;
+    }
+
+    .teacher-photo{
+        width:100%;
+        min-width:0;
+    }
+
+    .teacher-info h3{
+        font-size:30px;
+    }
+
+
+    /* MEMBERS */
+
+    .members{
+        grid-template-columns:
+            repeat(6,1fr);
+
+        grid-auto-rows:130px;
+
+        gap:12px;
+    }
+
+    .member:nth-child(n){
+        grid-column:span 2;
+        grid-row:span 2;
+    }
+
+    .member:nth-child(1),
+    .member:nth-child(6),
+    .member:nth-child(9),
+    .member:nth-child(12),
+    .member:nth-child(15),
+    .member:nth-child(18){
+        grid-column:span 3;
+        grid-row:span 2;
+    }
+
+    .member-photo{
+        font-size:32px;
+    }
+
+
+    /* GALLERY */
+
+    .gallery{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+/* =====================================================
+   PHONE
+===================================================== */
+
+@media(max-width:480px){
+
+    section:not(.hero){
+        padding:80px 5%;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+
+    /* HERO */
+
+    .hero h1{
+        font-size:72px;
+        letter-spacing:-5px;
+    }
+
+    .school-label{
+        font-size:10px;
+        letter-spacing:4px;
+    }
+
+    .axioo-wrap{
+        margin-top:30px;
+    }
+
+    .axioo-logo{
+        width:160px;
+    }
+
+    .hero-desc{
+        font-size:15px;
+    }
+
+    .hero-stats{
+        font-size:8px;
+        gap:8px;
+    }
+
+    .scroll-hint{
+        margin-top:45px;
+    }
+
+
+    /* MEMBERS */
+
+    .members{
+        display:grid;
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        grid-auto-rows:180px;
+
+        gap:12px;
+    }
+
+    .member:nth-child(n){
+        grid-column:span 1;
+        grid-row:span 1;
+    }
+
+    .member:nth-child(1),
+    .member:nth-child(6),
+    .member:nth-child(11),
+    .member:nth-child(16){
+        grid-column:span 2;
+        grid-row:span 2;
+    }
+
+    .member-info{
+        padding:
+            35px 12px 12px;
+    }
+
+    .member-info h3{
+        font-size:13px;
+    }
+
+    .member-info p{
+        font-size:8px;
+    }
+
+    .member-photo{
+        font-size:28px;
+    }
+
+
+    /* GALLERY */
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav>
+
+    <div class="logo">
+        XI <span>TJKT 1</span>
+    </div>
+
+
+    <div
+        class="menu-btn"
+        onclick="toggleMenu()"
+    >
+        ☰
+    </div>
+
+
+    <ul id="navMenu">
+
+        <li>
+            <a href="#home" onclick="closeMenu()">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#about" onclick="closeMenu()">
+                Tentang
+            </a>
+        </li>
+
+        <li>
+            <a href="#teacher" onclick="closeMenu()">
+                Wali Kelas
+            </a>
+        </li>
+
+        <li>
+            <a href="#members" onclick="closeMenu()">
+                Anggota
+            </a>
+        </li>
+
+        <li>
+            <a href="#schedule" onclick="closeMenu()">
+                Jadwal
+            </a>
+        </li>
+
+        <li>
+            <a href="#gallery" onclick="closeMenu()">
+                Gallery
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-content">
+
+        <div class="school-label">
+            SMK MANDIRI BERSEMI
+        </div>
+
+
+        <h1>
+            XI <span>TJKT</span> 1
+        </h1>
+
+
+        <div class="axioo-wrap">
+
+            <img
+                src="axioo.jpg"
+                alt="Axioo Class Program"
+                class="axioo-logo"
+            >
+
+        </div>
+
+
+        <p class="hero-desc">
+            One Class. One Story. One Memory.
+        </p>
+
+
+        <div class="hero-stats">
+
+            <span>18 STUDENTS</span>
+
+            <i>•</i>
+
+            <span>1 CLASS</span>
+
+            <i>•</i>
+
+            <span>1 STORY</span>
+
+        </div>
+
+
+        <a
+            href="#about"
+            class="hero-btn"
+        >
+
+            Explore Class
+
+            <span>↓</span>
+
+        </a>
+
+
+        <div class="scroll-hint">
+
+            <span></span>
+
+            SCROLL TO EXPLORE
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    id="about"
+    class="reveal"
+>
+
+    <div class="section-title">
+
+        <small>
+            ABOUT US
+        </small>
+
+        <h2>
+            Tentang Kelas
+        </h2>
+
+        <p>
+            Kenalan lebih dekat dengan XI TJKT 1.
+        </p>
+
+    </div>
+
+
+    <div class="about-box">
+
+        <p>
+
+            Selamat datang di website resmi
+            <b>XI TJKT 1</b> dari
+            <b>SMK MANDIRI BERSEMI</b>.
+
+            Website ini menjadi tempat untuk
+            menyimpan informasi, cerita,
+            dan kenangan perjalanan kelas kita.
+
+        </p>
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <h3>
+                    XI
+                </h3>
+
+                <p>
+                    Tingkat Kelas
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    TJKT
+                </h3>
+
+                <p>
+                    Jurusan
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    18
+                </h3>
+
+                <p>
+                    Siswa
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WALI KELAS
+===================================================== -->
+
+<section
+    id="teacher"
+    class="reveal"
+>
+
+    <div class="section-title">
+
+        <small>
+            OUR TEACHER
+        </small>
+
+        <h2>
+            Wali Kelas
+        </h2>
+
+        <p>
+            Sosok yang membimbing perjalanan XI TJKT 1.
+        </p>
+
+    </div>
+
+
+    <div class="teacher">
+
+        <div class="teacher-photo">
+            FOTO
+        </div>
+
+
+        <div class="teacher-info">
+
+            <small>
+                WALI KELAS XI TJKT 1
+            </small>
+
+            <h3>
+                Nama Wali Kelas
+            </h3>
+
+            <p class="position">
+                Wali Kelas • SMK MANDIRI BERSEMI
+            </p>
+
+            <p class="quote">
+
+                "Setiap kelas memiliki cerita.
+                Dan setiap cerita memiliki orang-orang
+                yang membuatnya berarti."
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ANGGOTA KELAS V7
+===================================================== -->
+
+<section
+    id="members"
+    class="reveal"
+>
+
+    <div class="section-title">
+
+        <small>
+            OUR PEOPLE
+        </small>
+
+        <h2>
+            Anggota Kelas
+        </h2>
+
+        <p>
+            18 orang, satu cerita.
+        </p>
+
+    </div>
+
+
+    <div class="members">
+
+
+        <!-- 01 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                01
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 01
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                02
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 02
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                03
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 03
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                04
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 04
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                05
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 05
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                06
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 06
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 07 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                07
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 07
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 08 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                08
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 08
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 09 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                09
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 09
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 10 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                10
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 10
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 11 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                11
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 11
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 12 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                12
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 12
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 13 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                13
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 13
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 14 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                14
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 14
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 15 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                15
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 15
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 16 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                16
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 16
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 17 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                17
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 17
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 18 -->
+
+        <div class="member">
+
+            <div class="member-photo">
+                18
+            </div>
+
+            <div class="member-info">
+
+                <h3>
+                    Nama Siswa 18
+                </h3>
+
+                <p>
+                    XI TJKT 1
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     JADWAL
+===================================================== -->
+
+<section
+    id="schedule"
+    class="reveal"
+>
+
+    <div class="section-title">
+
+        <small>
+            CLASS SCHEDULE
+        </small>
+
+        <h2>
+            Jadwal Pelajaran
+        </h2>
+
+        <p>
+            Jadwal mingguan XI TJKT 1.
+        </p>
+
+    </div>
+
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Hari
+                </th>
+
+                <th>
+                    Jam
+                </th>
+
+                <th>
+                    Mata Pelajaran
+                </th>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Senin
+                </td>
+
+                <td>
+                    07:00 - 08:00
+                </td>
+
+                <td>
+                    Contoh Mata Pelajaran
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Selasa
+                </td>
+
+                <td>
+                    07:00 - 08:00
+                </td>
+
+                <td>
+                    Contoh Mata Pelajaran
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Rabu
+                </td>
+
+                <td>
+                    07:00 - 08:00
+                </td>
+
+                <td>
+                    Contoh Mata Pelajaran
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Kamis
+                </td>
+
+                <td>
+                    07:00 - 08:00
+                </td>
+
+                <td>
+                    Contoh Mata Pelajaran
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Jumat
+                </td>
+
+                <td>
+                    07:00 - 08:00
+                </td>
+
+                <td>
+                    Contoh Mata Pelajaran
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section
+    id="gallery"
+    class="reveal"
+>
+
+    <div class="section-title">
+
+        <small>
+            OUR MEMORIES
+        </small>
+
+        <h2>
+            Gallery
+        </h2>
+
+        <p>
+            Tempat menyimpan momen XI TJKT 1.
+        </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+        <div class="gallery-item">
+            01
+        </div>
+
+        <div class="gallery-item">
+            02
+        </div>
+
+        <div class="gallery-item">
+            03
+        </div>
+
+        <div class="gallery-item">
+            04
+        </div>
+
+        <div class="gallery-item">
+            05
+        </div>
+
+        <div class="gallery-item">
+            06
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <h2>
+        XI TJKT 1
+    </h2>
+
+    <p>
+        SMK MANDIRI BERSEMI
+    </p>
+
+    <br>
+
+    <p>
+        © 2026 XI TJKT 1 • All Memories Reserved
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     TOP BUTTON
+===================================================== -->
+
+<button
+    id="topBtn"
+    onclick="topFunction()"
+>
+    ↑
+</button>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* MENU */
+
+function toggleMenu(){
+
+    document
+        .getElementById("navMenu")
+        .classList.toggle("active");
+
+}
+
+
+function closeMenu(){
+
+    document
+        .getElementById("navMenu")
+        .classList.remove("active");
+
+}
+
+
+/* REVEAL */
+
+function reveal(){
+
+    const elements =
+        document.querySelectorAll(".reveal");
+
+
+    elements.forEach(element => {
+
+        const top =
+            element
+            .getBoundingClientRect()
+            .top;
+
+
+        if(
+            top <
+            window.innerHeight - 100
+        ){
+
+            element
+                .classList
+                .add("active");
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    reveal
+);
+
+reveal();
+
+
+/* TOP BUTTON */
+
+const topBtn =
+    document.getElementById("topBtn");
+
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        if(window.scrollY > 400){
+
+            topBtn.style.display =
+                "block";
+
+        }else{
+
+            topBtn.style.display =
+                "none";
+
+        }
+
+    }
+);
+
+
+function topFunction(){
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
